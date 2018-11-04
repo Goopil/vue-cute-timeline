@@ -27,7 +27,6 @@
 
     data () {
       return {
-        slotOthers: false,
         iconSizeData: {
             'small' : {
                 'top': '.28em', 'left': '-34px', 'width': '10px', 'height': '10px'
@@ -43,6 +42,9 @@
     },
 
     computed: {
+      slotOthers () {
+        return !!this.$slots['others'] || !!this.$scopedSlots['others']
+      },
       circleStyle () {
         if (!this.bgColor && !this.lineColor && !this.hollow && !this.iconSize) return
         let style = {}
@@ -80,10 +82,6 @@
 
         return className
       }
-    },
-
-    mounted () {
-      this.slotOthers = !!this.$refs.others.innerHTML
     },
   }
 </script>

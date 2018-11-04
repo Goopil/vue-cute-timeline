@@ -1,5 +1,8 @@
 <template>
-  <ul class="timeline" ref="timeline">
+  <ul
+    :style="{'--timelineTheme': timelineTheme, '--timelineBg': timelineBg}"
+    class="timeline"
+  >
     <slot />
   </ul>
 </template>
@@ -17,12 +20,6 @@
         type: String,
         default: '#fff',
       }
-    },
-
-    mounted() {
-      const timeline = this.$refs.timeline
-      timeline.style.setProperty('--timelineTheme', this.timelineTheme)
-      timeline.style.setProperty('--timelineBg', this.timelineBg)
     }
   }
 </script>
